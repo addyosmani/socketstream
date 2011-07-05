@@ -82,7 +82,7 @@ describe "Configurator", ->
       afterEach ->
         fs.unlinkSync 'lab/config/app.coffee', mode
 
-      it "should set the SS.config application values from the /config/app.coffee file", ->            
+      it "should set the SS.config application values from the /config/app.coffee file", ->
         configurator.configure()
         expect(SS.config.client.log.level).toEqual 1
       
@@ -98,3 +98,5 @@ describe "Configurator", ->
         fs.unlinkSync 'lab/config/environments/development.coffee', mode
         fs.rmdirSync 'lab/config/environments', mode
       
+      it "should raise an error if a config file contains invalid markup", ->
+        # TODO - figure out a way to test the raising of an error
